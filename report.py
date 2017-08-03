@@ -16,6 +16,19 @@ def connect_to_db():
         print("Can't connect to {}", DBNAME)
         sys.exit(1)
 
+def get_results(sql_query):
+    """Executes SQL Query provided as a parameter and returns a result object."""
+    
+    try:
+        conn, cur = connect()
+        cur.execute(sql_query)
+        results = cur.fetchall()
+        conn.close()
+        return results
+    except:
+        print("Failed to get results from query - {}", sql_query)
+        sys.exit(1)
+
 def articles_most_popular():
 
 
