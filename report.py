@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+"""Log Analysis Report from News DB"""
 
 import psycopg2
 import datetime
