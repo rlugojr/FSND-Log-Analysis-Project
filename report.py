@@ -39,6 +39,11 @@ def write_to_file(stringOut,mode):
     except:
         print("Error writing to text file.")
 
+def report_header():
+    header = "Log Analysis report - {}.\n\n".format(datetime.date.today())
+    print(header)
+    write_to_file(header,'w')
+
 def articles_most_popular():
     """Placeholder"""
     section_header = "The most popular three articles of all time:\n"
@@ -51,7 +56,6 @@ def articles_most_popular():
         write_to_file(line_out,'a')
     print(SPACER)
     write_to_file(SPACER,'a')
-
 
 def authors_most_popular():
     """Placeholder"""
@@ -80,9 +84,7 @@ def request_high_percent_errors():
     write_to_file(SPACER,'a')
 
 def build_report():
-    header = "Log Analysis report - {}.\n\n".format(datetime.date.today())
-    print(header)
-    write_to_file(header,'w')
+    report_header()
 
     articles_most_popular()
 
