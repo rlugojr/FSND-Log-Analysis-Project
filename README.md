@@ -29,20 +29,20 @@ If this library is not installed then the Python script will not be able to conn
 
 The data used for this project can be downloaded here: [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)  Using this file you will be able to create the "news" database, tables and insert the data automatically.
 
-If you are using the Udacity Linux VM, copy newsdata.sql into the mounted directory "/vagrant/news" (create dir if it doesn't exist)  and then run the following command inside of the terminal:
+If you are using the Udacity Linux VM, copy newsdata.sql into the mounted directory "/vagrant/news" (create "news" directory if it doesn't exist)  and then run the following command inside of the terminal:
 
         psql -d news -f newsdata.sql
 
-\* Note: ensure that your working directory contains the newsdata.sql file or add the full path to the psql command.
+\* Note: ensure that your working directory contains the newsdata.sql file or add the sql file's full path to the psql command.
 
 **_Custom SQL Views_** have been provided in the file  [sql_views.sql](https://github.com/rlugojr/FSND-Log-Analysis-Project/blob/master/sql_views.sql)\
-To use this file to create the SQL Views from the terminal, run psql with "sql_views.sql" to create the necessary iews inside of the "news" DB using the command:
+To use this file to create the SQL Views from the terminal, run psql with "sql_views.sql" inside of the "news" DB using the command:
 
         psql -d news -f "sql_views.sql"
 
 \* Note: ensure that your working directory contains the newsdata.sql file or add the full path to the psql command.
 
-When the SQL script finishes creating the views, select statements will run to test each view.
+When the SQL script finishes creating the views, select statements will run to test each view.  Views are setup correctly if these SQL queries run without error and should return results.  Here are the views and the questions that they answer:
 
 -   Top 3 most popular articles.
 
