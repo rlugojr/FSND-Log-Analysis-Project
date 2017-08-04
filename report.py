@@ -40,7 +40,7 @@ def get_results(sql_query):
 
 
 def write_to_file(stringOut, mode):
-    """Placeholder"""
+    """Helper function to write output to a file."""
     try:
         with open(FILENAME, mode) as report_file:
             report_file.write(stringOut)
@@ -49,13 +49,14 @@ def write_to_file(stringOut, mode):
 
 
 def report_header():
+    """Writes header info to the report file."""
     header = "Log Analysis report - {}.\n\n".format(datetime.date.today())
     print(header)
     write_to_file(header, 'w')
 
 
 def articles_most_popular():
-    """Placeholder"""
+    """Retrieves top articles and writes to report file."""
     section_header = "The most popular three articles of all time:\n"
     print(section_header)
     write_to_file(section_header, 'a')
@@ -69,7 +70,7 @@ def articles_most_popular():
 
 
 def authors_most_popular():
-    """Placeholder"""
+    """Retrieves most popular authors and writes to report file."""
     section_header = "The most popular article authors of all time:\n"
     print(section_header)
     write_to_file(section_header, 'a')
@@ -83,7 +84,7 @@ def authors_most_popular():
 
 
 def request_high_percent_errors():
-    """Placeholder"""
+    """Retrieves date with highest percentage of errors and writes to report file."""
     section_header = "The day with >1% request errors:\n"
     print(section_header)
     write_to_file(section_header, 'a')
@@ -97,6 +98,7 @@ def request_high_percent_errors():
 
 
 def build_report():
+    """Generates the report using the separate reporting functions."""
     report_header()
 
     articles_most_popular()
