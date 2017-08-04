@@ -12,7 +12,8 @@ The data used for this project can be found in the corresponding FSND materials.
 
 The following SQL Views have been provided in the sql_views.sql:
 
-1.  Top 3 most popular articles.
+-   Top 3 most popular articles.
+
 
     CREATE view articles_most_popular
     AS
@@ -27,7 +28,8 @@ The following SQL Views have been provided in the sql_views.sql:
         ORDER  BY total_reads DESC
         LIMIT  3;
 
-2.  Most popular authors (by article views).
+-   Most popular authors (by article views).
+
 
     CREATE VIEW authors_most_popular
     AS
@@ -43,7 +45,8 @@ The following SQL Views have been provided in the sql_views.sql:
         GROUP  BY au.name
         ORDER  BY total_reads DESC;
 
-3.  Date with the highest percentage of failed requests.
+-   Date with the highest percentage of failed requests.
+
 
     CREATE VIEW request_high_percent_errors
     AS
@@ -55,3 +58,12 @@ The following SQL Views have been provided in the sql_views.sql:
                 FROM     log
                 GROUP BY log_date) AS log_info
         WHERE  ((cast(total_failures AS FLOAT) / cast(total_reqs AS FLOAT)) _ 100) > 1;
+
+## Usage
+
+To run the program and generate the report text file:
+
+1.  From the terminal, run `python report.py`
+2.  Open the output file named with the format "Log_Report_[current date]".
+
+The majority of the data processing is handled by the Postgres DBMS whereas "report.py" only contains the python code to retrieve data from the SQL Views and format the results into the output file.
