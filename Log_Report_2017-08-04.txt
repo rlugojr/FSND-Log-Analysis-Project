@@ -1,4 +1,4 @@
-Log Analysis report - 2017-08-03.
+Log Analysis report - 2017-08-04.
 
 The most popular three articles of all time:
 "Candidate is jerk, alleges rival" - 338,647 views
@@ -14,6 +14,6 @@ Markoff Chaney - 84,557 views
 
 
 The day with >1% request errors:
-2016 07 17 - 2.32% errors
+2016-07-17 - 2.26% errors
 
 
