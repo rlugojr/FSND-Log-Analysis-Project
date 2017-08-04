@@ -61,8 +61,8 @@ def articles_most_popular():
     print(section_header)
     write_to_file(section_header, 'a')
     items = get_results('select * from articles_most_popular')
-    for item in items:
-        line_out = '"{}" - {:,d} views\n'.format(item[0], item[1])
+    for title, views in items:
+        line_out = '"{}" - {:,d} views\n'.format(title, views)
         print(line_out)
         write_to_file(line_out, 'a')
     print(SPACER)
@@ -75,8 +75,8 @@ def authors_most_popular():
     print(section_header)
     write_to_file(section_header, 'a')
     items = get_results('select * from authors_most_popular')
-    for item in items:
-        line_out = '{} - {:,d} views\n'.format(item[0], item[1])
+    for author, views in items:
+        line_out = '{} - {:,d} views\n'.format(author, views)
         print(line_out)
         write_to_file(line_out, 'a')
     print(SPACER)
@@ -89,8 +89,8 @@ def request_high_percent_errors():
     print(section_header)
     write_to_file(section_header, 'a')
     items = get_results('select * from request_high_percent_errors')
-    for item in items:
-        line_out = '{} - {:01.2f}% errors\n'.format(item[0], item[1])
+    for log_date, percentage in items:
+        line_out = '{} - {:01.2f}% errors\n'.format(log_date, percentage)
         print(line_out)
         write_to_file(line_out, 'a')
     print(SPACER)
