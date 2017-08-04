@@ -1,5 +1,5 @@
-create view articles_most_popular
-as
+CREATE VIEW articles_most_popular
+AS
 SELECT a.title, l.views
 FROM articles AS a JOIN
  (SELECT path, count(path) AS views
@@ -9,19 +9,28 @@ ON '/article/' || a.slug = l.path
 ORDER BY views DESC
 LIMIT 3;
 
-create view authors_most_popular
-as
-select au.name, sum(l.views) as total_reads
-from authors as au join articles as a
-on au.id = a.author join (
-    select path, count(path) as views
-    from log
-    GROUP BY log.path) as l
-on '/article/' || a.slug = l.path
-group by au.name
-order by total_reads desc;
+CREATE VIEW authors_most_popular
+AS
+SELECT au.name, sum(l.views) AS total_reads
+FROM authors AS au JOIN articles AS a
+ON au.id = a.author JOIN (
+    SELECT path, count(path) AS views
+    FROM log
+    GROUP BY log.path) AS l
+ON '/article/' || a.slug = l.path
+GROUP BY au.name
+ORDER BY total_reads DESC;
 
-create view request_high_percent_errors as select log_date, ((cast(total_failures as float) / cast(total_reqs as float)) * 100) as error_percentage from (select cast(time as date) as log_date, count(*) as total_reqs, count(*) FILTER (WHERE status = '404 NOT FOUND') as total_failures from log group by log_date) as log_info where ((cast(total_failures as float) / cast(total_reqs as float)) * 100) > 1;
+CREATE VIEW request_high_percent_errors
+AS
+SELECT log_date,
+       ((cast(total_failures AS float) / cast(total_reqs AS float))  * 100) AS error_percentage
+FROM (SELECT cast(time AS date) AS log_date,
+      count(*) AS total_reqs,
+      count(*) FILTER (WHERE status = '404 NOT FOUND') AS total_failures
+      FROM log
+      GROUP BY log_date) AS log_info
+WHERE ((cast(total_failures AS float) / cast(total_reqs AS float)) * 100) > 1;
 
 select * from articles_most_popular;
 
