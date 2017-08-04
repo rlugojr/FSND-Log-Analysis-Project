@@ -70,7 +70,8 @@ def articles_most_popular():
 
 
 def authors_most_popular():
-    """Retrieves most popular authors and writes to report file."""
+    """Retrieves most popular authors and
+    writes to report file."""
     section_header = "The most popular article authors of all time:\n"
     print(section_header)
     write_to_file(section_header, 'a')
@@ -84,7 +85,8 @@ def authors_most_popular():
 
 
 def request_high_percent_errors():
-    """Retrieves date with highest percentage of errors and writes to report file."""
+    """Retrieves date with highest percentage
+    of errors and writes to report file."""
     section_header = "The day with >1% request errors:\n"
     print(section_header)
     write_to_file(section_header, 'a')
@@ -98,7 +100,8 @@ def request_high_percent_errors():
 
 
 def build_report():
-    """Generates the report using the separate reporting functions."""
+    """Generates the report using the separate
+    reporting functions."""
     report_header()
 
     articles_most_popular()
