@@ -2,13 +2,27 @@
 
 ## Introduction
 
-The purpose of this project is generate a report of a blog's web server activity data analysis using python to query a Postgres DB and save the resulting output to a text file.
+The purpose of this project is generate a report of a blog's web server activity data analysis using python to query a Postgres DB and save the resulting output to a text file.  The data analysis will report the answer to the following business critical questions:
+
+1.  What are the most popular three articles of all time?
+2.  Who are the most popular article authors of all time?
+3.  On which days did more than 1% of requests lead to errors?
 
 ## Setup
 
-The FSND Linux VM should be used to ensure compatibility with this project.  Otherwise, you can run this on a Linux system that has Python >=3.5 and Postgres >= 9.5.
+### Server Environment
 
-The data used for this project can be found in the corresponding FSND materials.
+There are several methods of preparing a server environment to run this analysis. The quickest, simplest method and one that will ensure compatibility is to use Udacity's Linux virtual machine.  The instructions for installation and creation of the VM can be found here:
+[Linux VM Setup](https://classroom.udacity.com/nanodegrees/nd004/parts/8d3e23e1-9ab6-47eb-b4f3-d5dc7ef27bf0/modules/bc51d967-cb21-46f4-90ea-caf73439dc59/lessons/5475ecd6-cfdb-4418-85a2-f2583074c08d/concepts/14c72fe3-e3fe-4959-9c4b-467cf5b7c3a0)
+
+### Database setup
+
+The data used for this project can be downloaded here: [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+Copy this data into the "/vagrant/news" directory and then run the following command inside of the terminal command line:
+
+        psql -d news -f newsdata.sql
+
+\*\*\* Note: ensure that your working directory contains the newsdata.sql file or add the full path to the psql command.
 
 The following SQL Views have been provided in the sql_views.sql:
 
@@ -65,6 +79,7 @@ To run the program and generate the report text file:
         psql -d news -f "sql_views.sql"
 
 When the SQL script finishes creating the views, select statements will run to test each view.
+\*\*\* Note: ensure that your working directory contains the newsdata.sql file or add the full path to the psql command.
 
 2.  From the terminal, run
 
