@@ -13,8 +13,7 @@ The data used for this project can be found in the corresponding FSND materials.
 The following SQL Views have been provided in the sql_views.sql:
 
 -   Top 3 most popular articles.
-
-
+```
     CREATE view articles_most_popular
     AS
         SELECT a.title,
@@ -27,10 +26,9 @@ The following SQL Views have been provided in the sql_views.sql:
         GROUP  BY a.title
         ORDER  BY total_reads DESC
         LIMIT  3;
-
+```
 -   Most popular authors (by article views).
-
-
+```
     CREATE VIEW authors_most_popular
     AS
         SELECT au.name,
@@ -44,10 +42,9 @@ The following SQL Views have been provided in the sql_views.sql:
         ON a.slug = l.slug
         GROUP  BY au.name
         ORDER  BY total_reads DESC;
-
+```
 -   Date with the highest percentage of failed requests.
-
-
+```
     CREATE VIEW request_high_percent_errors
     AS
         SELECT log_date, ((Cast(total_failures AS FLOAT) / Cast(total_reqs AS FLOAT)) _ 100) AS error_percentage
@@ -58,7 +55,7 @@ The following SQL Views have been provided in the sql_views.sql:
                 FROM     log
                 GROUP BY log_date) AS log_info
         WHERE  ((cast(total_failures AS FLOAT) / cast(total_reqs AS FLOAT)) _ 100) > 1;
-
+```
 ## Usage
 
 To run the program and generate the report text file:
